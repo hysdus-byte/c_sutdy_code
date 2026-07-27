@@ -6,38 +6,63 @@
 ![Day](https://img.shields.io/badge/day-1-e8b04b?style=for-the-badge)
 ![Examples](https://img.shields.io/badge/examples-opp01~opp14-4f9a5a?style=for-the-badge)
 
-*학원에서 C 13일차까지 배운 뒤 시작한 C++ 강의 첫날 실습 기록*
+### *학원에서 C 13일차까지 배운 뒤 시작한 C++ 강의 첫날 실습 기록*
 
 </div>
 
 <br>
 
-<a name="toc"></a>
-## 📑 목차
+## ⚡ 빠른 개념 정리
 
-| | 번호 | 주제 | 분류 | 변형 |
+### 처음 보시는 분들은 여기서 오늘 배운 개념부터 쭉 훑어보세요 👇
+
+| | 개념 | 분류 | 설명 | 예제 |
 |:---:|:---|:---|:---|:---:|
-| 🖨️ | [`opp01`](#opp01-cout으로-화면에-출력하기) | cout으로 화면에 출력하기 | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) |  |
-| ⌨️ | [`opp02`](#opp02-cin으로-두-숫자-입력받아-덧셈하기) | cin으로 두 숫자 입력받아 덧셈하기 | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) |  |
-| 🔁 | [`opp03`](#opp03-두-수-사이의-정수-합-구하기) | 두 수 사이의 정수 합 구하기 | ![제어흐름](https://img.shields.io/badge/-제어흐름-e8b04b?style=flat-square) |  |
-| 🧩 | [`opp04`](#opp04-여러-개의-char-배열로-정보-입력받기) | 여러 개의 char 배열로 정보 입력받기 | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) |  |
-| 🧬 | [`opp05`](#opp05-함수-오버로딩-다중정의) | 함수 오버로딩 (다중정의) | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
-| 🎛️ | [`opp06`](#opp06-디폴트-매개변수-2개-함께-쓰기) | 디폴트 매개변수 2개 함께 쓰기 | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
-| ⚡ | [`opp07`](#opp07-inline-함수) | inline 함수 | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
-| 📦 | [`opp08`](#opp08-namespace이름공간-기초) | namespace(이름공간) 기초 | ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square) | 🔁 |
-| 🪆 | [`opp09`](#opp09-중첩-namespace와-별칭alias) | 중첩 namespace와 별칭(alias) | ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square) | 🔁 |
-| 🔘 | [`opp10`](#opp10-bool-자료형-whiletruebreak-sizeof) | bool 자료형, while(true)+break, sizeof | ![자료형](https://img.shields.io/badge/-자료형-ce9178?style=flat-square) | 🔁 |
-| ❓ | [`opp11`](#opp11-bool을-반환하는-함수로-양수음수-판별하기) | bool을 반환하는 함수로 양수/음수 판별하기 | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
-| 🔗 | [`opp12`](#opp12-참조자reference-변수에-별명-붙이기) | 참조자(reference) — 변수에 별명 붙이기 | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
-| 📎 | [`opp13`](#opp13-배열-원소에-참조자-걸기) | 배열 원소에 참조자 걸기 | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
-| 🪢 | [`opp14`](#opp14-참조자와-포인터를-함께-쓰기) | 참조자와 포인터를 함께 쓰기 | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
+| 🧬 | **클래스(class)** | ![개념](https://img.shields.io/badge/-개념-8a8a8a?style=flat-square) | 구조체의 발전형. 데이터와 그 데이터를 다루는 함수를 하나로 묶은 설계도. | — |
+| 🖨️ | **cout** | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) | 화면(콘솔)을 대표하는 객체. `<<` 연산자로 값을 흘려보내 출력한다. | [`opp01`](#opp01) |
+| ⌨️ | **cin** | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) | 키보드(입력)를 대표하는 객체. `>>` 연산자로 값을 꺼내 변수에 저장하며, `&` 없이 변수 이름만 쓴다. | [`opp02`](#opp02) |
+| ↩️ | **std::endl** | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) | 줄바꿈을 수행하고, 출력 버퍼도 함께 비워준다. | [`opp01`](#opp01) |
+| 🧩 | **함수 오버로딩** | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 이름은 같지만 매개변수의 개수·자료형이 다른 함수를 여러 개 만드는 것. | [`opp05`](#opp05) |
+| 🎛️ | **디폴트 매개변수** | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 매개변수에 기본값을 미리 지정해두면, 인자를 생략해도 그 기본값이 자동으로 들어간다. | [`opp06`](#opp06) |
+| ⚡ | **inline 함수** | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 짧고 자주 쓰이는 함수 앞에 붙여, 호출 대신 그 자리에 코드를 그대로 복사해 넣도록 요청하는 키워드. | [`opp07`](#opp07) |
+| 📦 | **namespace** | ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square) | 같은 이름의 함수/변수가 여러 그룹에 있어도 `이름공간::이름`으로 구분해서 쓸 수 있게 한다. | [`opp08`](#opp08) |
+| 🪆 | **중첩 · 별칭(alias)** | ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square) | 이름공간 안에 이름공간을 겹겹이 둘 수 있고, 긴 경로에는 짧은 별명을 붙일 수 있다. | [`opp09`](#opp09) |
+| 🔘 | **bool** | ![자료형](https://img.shields.io/badge/-자료형-ce9178?style=flat-square) | 참/거짓을 나타내는 자료형. 화면에는 각각 `1`과 `0`으로 출력된다. | [`opp10`](#opp10) |
+| 🔁 | **while(true) + break** | ![제어흐름](https://img.shields.io/badge/-제어흐름-e8b04b?style=flat-square) | 무조건 반복하는 무한루프를 만든 뒤, 원하는 시점에 `if(조건) break;`로 직접 빠져나오는 패턴. | [`opp10`](#opp10) |
+| 📏 | **sizeof** | ![자료형](https://img.shields.io/badge/-자료형-ce9178?style=flat-square) | 어떤 값이나 자료형이 메모리에서 몇 바이트를 차지하는지 알려주는 연산자. | [`opp10`](#opp10) |
+| 🔗 | **참조자(&)** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 기존 변수에 붙이는 별명. 원본과 완전히 같은 메모리를 가리키며, 대상을 바꿀 수 없다. | [`opp12`](#opp12) |
+| 🪢 | **참조자 + 포인터** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 참조자는 포인터·이중포인터에도 걸 수 있어, 포인터 변수 자체의 별명을 만들 수 있다. | [`opp14`](#opp14) |
+
+<br>
 
 ---
 
-## 🗓️ Day 1
+<a name="toc"></a>
+# 📑 목차
+
+| | 번호 | 주제 | 분류 | 변형 |
+|:---:|:---|:---|:---|:---:|
+| 🖨️ | [`opp01`](#opp01) | **cout으로 화면에 출력하기** | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) |  |
+| ⌨️ | [`opp02`](#opp02) | **cin으로 두 숫자 입력받아 덧셈하기** | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) |  |
+| 🔁 | [`opp03`](#opp03) | **두 수 사이의 정수 합 구하기** | ![제어흐름](https://img.shields.io/badge/-제어흐름-e8b04b?style=flat-square) |  |
+| 🧩 | [`opp04`](#opp04) | **여러 개의 char 배열로 정보 입력받기** | ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square) |  |
+| 🧬 | [`opp05`](#opp05) | **함수 오버로딩 (다중정의)** | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
+| 🎛️ | [`opp06`](#opp06) | **디폴트 매개변수 2개 함께 쓰기** | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
+| ⚡ | [`opp07`](#opp07) | **inline 함수** | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
+| 📦 | [`opp08`](#opp08) | **namespace(이름공간) 기초** | ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square) | 🔁 |
+| 🪆 | [`opp09`](#opp09) | **중첩 namespace와 별칭(alias)** | ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square) | 🔁 |
+| 🔘 | [`opp10`](#opp10) | **bool 자료형, while(true)+break, sizeof** | ![자료형](https://img.shields.io/badge/-자료형-ce9178?style=flat-square) | 🔁 |
+| ❓ | [`opp11`](#opp11) | **bool을 반환하는 함수로 양수/음수 판별하기** | ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square) | 🔁 |
+| 🔗 | [`opp12`](#opp12) | **참조자(reference) — 변수에 별명 붙이기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
+| 📎 | [`opp13`](#opp13) | **배열 원소에 참조자 걸기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
+| 🪢 | [`opp14`](#opp14) | **참조자와 포인터를 함께 쓰기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
+
+---
+
+# 🗓️ Day 1
 
 > [!TIP]
-> **오늘의 핵심**
+> ### 오늘의 핵심
 > C++은 C에 '객체지향' 개념을 얹은 언어입니다. 오늘 배운 것을 한 줄로 요약하면 이렇습니다.
 >
 > ▸ 클래스(class) = 구조체(struct)의 발전형. 구조체는 데이터만 담았지만, 클래스는 데이터 + 그 데이터를 다루는 함수까지 하나로 묶습니다. 비행기를 만들 때 몸통·날개·바퀴의 '설계도'가 클래스이고, 그 설계도로 실제로 만든 비행기가 '객체(object)'입니다.
@@ -55,12 +80,14 @@
 
 ---
 
-### 🖨️ opp01. cout으로 화면에 출력하기
+<a name="opp01"></a>
+## 🖨️ opp01. cout으로 화면에 출력하기
 
 ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · C의 `printf` 대신 `cout`으로 다양한 자료형을 출력할 때
+> ### 언제 쓰나
+> C의 `printf` 대신 `cout`으로 다양한 자료형을 출력할 때
 
 ```cpp
 #include <iostream>
@@ -76,8 +103,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **개념**
@@ -97,7 +124,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 hello world
 hello world
@@ -105,16 +132,18 @@ hello world
 
 ```
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### ⌨️ opp02. cin으로 두 숫자 입력받아 덧셈하기
+<a name="opp02"></a>
+## ⌨️ opp02. cin으로 두 숫자 입력받아 덧셈하기
 
 ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · C의 `scanf` 대신 `cin`으로 값을 입력받을 때
+> ### 언제 쓰나
+> C의 `scanf` 대신 `cin`으로 값을 입력받을 때
 
 ```cpp
 #include <iostream>
@@ -133,8 +162,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **개념**
@@ -150,22 +179,24 @@ int main()
 
 </details>
 
-**▶️ 실행 결과** (입력: `23 / 13`)
+#### ▶️ 실행 결과 (입력: `23 / 13`)
 ```
 첫번째 숫자입력:두번째 숫자입력:덧셈결과: 36
 
 ```
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🔁 opp03. 두 수 사이의 정수 합 구하기
+<a name="opp03"></a>
+## 🔁 opp03. 두 수 사이의 정수 합 구하기
 
 ![제어흐름](https://img.shields.io/badge/-제어흐름-e8b04b?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 입력 순서에 상관없이 두 수 사이 값을 계산해야 할 때 (if-else + for문 조합)
+> ### 언제 쓰나
+> 입력 순서에 상관없이 두 수 사이 값을 계산해야 할 때 (if-else + for문 조합)
 
 ```cpp
 #include <iostream>
@@ -192,8 +223,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **문제 상황**
@@ -209,22 +240,24 @@ int main()
 
 </details>
 
-**▶️ 실행 결과** (입력: `23 / 13`)
+#### ▶️ 실행 결과 (입력: `23 / 13`)
 ```
 두개의 숫자입력:두 수 사이의 정수 합 :162
 
 ```
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🧩 opp04. 여러 개의 char 배열로 정보 입력받기
+<a name="opp04"></a>
+## 🧩 opp04. 여러 개의 char 배열로 정보 입력받기
 
 ![입출력](https://img.shields.io/badge/-입출력-4f9a5a?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 이름, 좋아하는 언어처럼 문자열 여러 개를 입력받아 출력할 때
+> ### 언제 쓰나
+> 이름, 좋아하는 언어처럼 문자열 여러 개를 입력받아 출력할 때
 
 ```cpp
 #include <iostream>
@@ -252,8 +285,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **자료형 선택 기준**
@@ -265,7 +298,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과** (입력: `홍길동 / C++ / 20`)
+#### ▶️ 실행 결과 (입력: `홍길동 / C++ / 20`)
 ```
 이름은 무엇입니까?좋아하는 프로그래밍 언어는 무엇인가요?나이는 몇살입니까?내 이름은 홍길동입니다.
 제일 좋아하는 언어는 C++입니다
@@ -273,16 +306,18 @@ int main()
 
 ```
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🧬 opp05. 함수 오버로딩 (다중정의)
+<a name="opp05"></a>
+## 🧬 opp05. 함수 오버로딩 (다중정의)
 
 ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 같은 동작을 하는 함수인데 매개변수 형태만 다를 때, 함수 이름을 여러 개 만들지 않아도 되도록
+> ### 언제 쓰나
+> 같은 동작을 하는 함수인데 매개변수 형태만 다를 때, 함수 이름을 여러 개 만들지 않아도 되도록
 
 ```cpp
 #include <iostream>
@@ -309,8 +344,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **함수 오버로딩이란**
@@ -330,7 +365,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 MyFunc(void) called
 MyFunc(char c) called
@@ -340,7 +375,7 @@ MyFunc(int a, int b) called
 
 <blockquote>
 
-#### 🔁 opp05의 변형 · 매개변수 자료형으로도 오버로딩하기
+### 🔁 opp05의 변형 · 매개변수 자료형으로도 오버로딩하기
 
 > [!NOTE]
 > 오버로딩은 매개변수 '개수'가 다를 때만 아니라, 개수는 같아도 '자료형'이 다르면 성립합니다. 아래는 매개변수가 1개로 개수는 같지만 `int` 버전과 `double` 버전을 따로 만든 예제입니다. 호출할 때 넘기는 값의 자료형을 보고 컴파일러가 알맞은 함수를 자동으로 골라 연결합니다.
@@ -365,7 +400,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 MyFunc(int) called: 10
 MyFunc(double) called: 3.14
@@ -374,16 +409,18 @@ MyFunc(double) called: 3.14
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🎛️ opp06. 디폴트 매개변수 2개 함께 쓰기
+<a name="opp06"></a>
+## 🎛️ opp06. 디폴트 매개변수 2개 함께 쓰기
 
 ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 매개변수 여러 개에 각각 기본값을 지정해서, 인자를 0개/1개/2개 중 몇 개를 주든 동작하는 함수를 만들 때
+> ### 언제 쓰나
+> 매개변수 여러 개에 각각 기본값을 지정해서, 인자를 0개/1개/2개 중 몇 개를 주든 동작하는 함수를 만들 때
 
 ```cpp
 #include <iostream>
@@ -402,8 +439,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!IMPORTANT]
 > **핵심 규칙**
@@ -421,7 +458,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 3
 7
@@ -431,7 +468,7 @@ int main()
 
 <blockquote>
 
-#### 🔁 opp06의 변형 · 매개변수 1개짜리 디폴트 매개변수
+### 🔁 opp06의 변형 · 매개변수 1개짜리 디폴트 매개변수
 
 > [!NOTE]
 > [기본형으로 돌아가서] Adder는 매개변수가 2개였지만, 디폴트 매개변수는 1개짜리 함수에서도 똑같이 동작합니다. 아래 예제로 가장 단순한 형태부터 다시 확인해봅니다.
@@ -456,7 +493,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 8
 11
@@ -465,16 +502,18 @@ int main()
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### ⚡ opp07. inline 함수
+<a name="opp07"></a>
+## ⚡ opp07. inline 함수
 
 ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 짧고 자주 호출되는 함수에서, 함수 호출에 드는 비용(오버헤드)을 없애고 싶을 때
+> ### 언제 쓰나
+> 짧고 자주 호출되는 함수에서, 함수 호출에 드는 비용(오버헤드)을 없애고 싶을 때
 
 ```cpp
 #include <iostream>
@@ -491,8 +530,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **개념**
@@ -508,7 +547,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 25
 144
@@ -517,7 +556,7 @@ int main()
 
 <blockquote>
 
-#### 🔁 opp07의 변형 · 삼항 연산자를 활용한 inline 함수
+### 🔁 opp07의 변형 · 삼항 연산자를 활용한 inline 함수
 
 > [!NOTE]
 > if-else 대신 삼항 연산자(조건 ? 참일때 : 거짓일때)를 쓰면 한 줄짜리 함수를 더 간결하게 만들 수 있어, `inline`으로 선언하기 좋은 형태가 됩니다. Max, Min처럼 두 값을 비교해서 하나를 고르는 함수가 대표적인 예입니다.
@@ -542,7 +581,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 Max: 7
 Min: 3
@@ -551,16 +590,18 @@ Min: 3
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 📦 opp08. namespace(이름공간) 기초
+<a name="opp08"></a>
+## 📦 opp08. namespace(이름공간) 기초
 
 ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 서로 다른 그룹(회사, 라이브러리 등)에서 같은 이름의 함수를 만들어도 충돌 없이 구분해서 쓰고 싶을 때
+> ### 언제 쓰나
+> 서로 다른 그룹(회사, 라이브러리 등)에서 같은 이름의 함수를 만들어도 충돌 없이 구분해서 쓰고 싶을 때
 
 ```cpp
 #include <iostream>
@@ -587,8 +628,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **개념**
@@ -608,7 +649,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 BestCom이 정의한 함수 
 ProgCom이 정의한 함수
@@ -617,7 +658,7 @@ ProgCom이 정의한 함수
 
 <blockquote>
 
-#### 🔁 opp08의 변형 · using namespace로 소속 생략하기
+### 🔁 opp08의 변형 · using namespace로 소속 생략하기
 
 > [!NOTE]
 > 매번 '이름공간::'을 쓰기 번거로우면 using `namespace` 선언으로 특정 이름공간만 생략할 수 있습니다. 단, 두 이름공간 모두에 using을 걸면 어느 쪽 함수인지 컴파일러가 판단하지 못해 모호함(ambiguous) 오류가 날 수 있으니, 생략은 한쪽에만 거는 것이 안전합니다.
@@ -649,7 +690,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 ProgCom이 정의한 함수
 BestCom이 정의한 함수
@@ -658,16 +699,18 @@ BestCom이 정의한 함수
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🪆 opp09. 중첩 namespace와 별칭(alias)
+<a name="opp09"></a>
+## 🪆 opp09. 중첩 namespace와 별칭(alias)
 
 ![이름공간](https://img.shields.io/badge/-이름공간-c586c0?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 이름공간 안에 이름공간을 겹겹이 두어 더 세밀하게 그룹을 나누고 싶을 때, 그리고 그 긴 경로에 짧은 별명을 붙이고 싶을 때
+> ### 언제 쓰나
+> 이름공간 안에 이름공간을 겹겹이 두어 더 세밀하게 그룹을 나누고 싶을 때, 그리고 그 긴 경로에 짧은 별명을 붙이고 싶을 때
 
 ```cpp
 #include <iostream>
@@ -698,8 +741,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **중첩 namespace**
@@ -715,7 +758,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 20
 30
@@ -724,7 +767,7 @@ int main()
 
 <blockquote>
 
-#### 🔁 opp09의 변형 · using 선언으로 이름 하나만 꺼내 쓰기
+### 🔁 opp09의 변형 · using 선언으로 이름 하나만 꺼내 쓰기
 
 > [!NOTE]
 > 이름공간 전체를 생략하지 않고, 그 안의 특정 이름 하나만 꺼내 쓰고 싶다면 using 선언(using 이름공간::이름;)을 씁니다. using `namespace`보다 훨씬 안전한데, 딱 지정한 이름만 생략 가능해지고 나머지는 여전히 소속을 밝혀야 하기 때문입니다.
@@ -756,7 +799,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 100
 200
@@ -765,16 +808,18 @@ int main()
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🔘 opp10. bool 자료형, while(true)+break, sizeof
+<a name="opp10"></a>
+## 🔘 opp10. bool 자료형, while(true)+break, sizeof
 
 ![자료형](https://img.shields.io/badge/-자료형-ce9178?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 참/거짓을 나타내는 값을 다룰 때, 반복 횟수를 코드 중간에서 직접 정하고 싶을 때, 자료형이 메모리를 얼마나 차지하는지 확인하고 싶을 때
+> ### 언제 쓰나
+> 참/거짓을 나타내는 값을 다룰 때, 반복 횟수를 코드 중간에서 직접 정하고 싶을 때, 자료형이 메모리를 얼마나 차지하는지 확인하고 싶을 때
 
 ```cpp
 #include <iostream>
@@ -803,8 +848,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!CAUTION]
 > **오류였던 부분**
@@ -824,7 +869,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 true: 1
 false: 0
@@ -838,7 +883,7 @@ sizeof false: 1
 
 <blockquote>
 
-#### 🔁 opp10의 변형 · 여러 자료형의 sizeof 한눈에 비교하기
+### 🔁 opp10의 변형 · 여러 자료형의 sizeof 한눈에 비교하기
 
 > [!NOTE]
 > `int`, `bool` 말고 다른 자료형도 `sizeof`로 비교해보면 '자료형마다 메모리 크기가 다르다'는 감이 훨씬 잘 잡힙니다. 크기가 클수록 더 큰/정밀한 값을 표현할 수 있지만 메모리를 더 많이 씁니다.
@@ -859,7 +904,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 sizeof char: 1
 sizeof int: 4
@@ -872,16 +917,18 @@ sizeof bool: 1
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### ❓ opp11. bool을 반환하는 함수로 양수/음수 판별하기
+<a name="opp11"></a>
+## ❓ opp11. bool을 반환하는 함수로 양수/음수 판별하기
 
 ![함수](https://img.shields.io/badge/-함수-6a9fd8?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 참/거짓 판단 결과 자체를 함수의 반환값으로 그대로 돌려주고 싶을 때 (`bool` 반환 함수)
+> ### 언제 쓰나
+> 참/거짓 판단 결과 자체를 함수의 반환값으로 그대로 돌려주고 싶을 때 (`bool` 반환 함수)
 
 ```cpp
 #include <iostream>
@@ -912,8 +959,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!CAUTION]
 > **오타 수정**
@@ -929,7 +976,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과** (입력: `5`)
+#### ▶️ 실행 결과 (입력: `5`)
 ```
 Input number: Positive number
 
@@ -937,7 +984,7 @@ Input number: Positive number
 
 <blockquote>
 
-#### 🔁 opp11의 변형 · 0을 별도로 분류하는 3단계 판별
+### 🔁 opp11의 변형 · 0을 별도로 분류하는 3단계 판별
 
 > [!NOTE]
 > 0을 양수/음수 어느 쪽에도 넣지 않고 싶다면, `bool(참/거짓 두 값)` 대신 서로 다른 정수(예: -1, 0, 1)를 반환하도록 바꾸면 세 가지 경우를 모두 구분할 수 있습니다. 반환 자료형을 `bool`에서 `int`로 바꾼 이유가 바로 '표현해야 하는 경우의 수'가 둘에서 셋으로 늘었기 때문입니다.
@@ -974,7 +1021,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과** (입력: `0`)
+#### ▶️ 실행 결과 (입력: `0`)
 ```
 Input number: Zero
 
@@ -982,16 +1029,18 @@ Input number: Zero
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🔗 opp12. 참조자(reference) — 변수에 별명 붙이기
+<a name="opp12"></a>
+## 🔗 opp12. 참조자(reference) — 변수에 별명 붙이기
 
 ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 함수에 원본 변수를 그대로 넘겨서 값을 바꾸고 싶을 때, 또는 포인터의 '*', '&' 없이 간단하게 원본을 다루고 싶을 때
+> ### 언제 쓰나
+> 함수에 원본 변수를 그대로 넘겨서 값을 바꾸고 싶을 때, 또는 포인터의 '*', '&' 없이 간단하게 원본을 다루고 싶을 때
 
 ```cpp
 #include <iostream>
@@ -1013,8 +1062,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **개념**
@@ -1054,18 +1103,18 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 VAL: 3047
 REF: 3047
-VAL: 0x7ffc659cdbac
-REF: 0x7ffc659cdbac
+VAL: 0x7ffc3befd9cc
+REF: 0x7ffc3befd9cc
 
 ```
 
 <blockquote>
 
-#### 🔁 opp12의 변형 · 포인터로 같은 상황 다시 작성해보기
+### 🔁 opp12의 변형 · 포인터로 같은 상황 다시 작성해보기
 
 > [!NOTE]
 > 바로 위 예제를 포인터 버전으로 똑같이 만들어보면 차이가 눈에 확 들어옵니다. 포인터는 *로 역참조해야 값에 접근할 수 있고, 포인터 변수 자체(ptr)와 포인터가 가리키는 주소(*ptr)를 구분해서 다뤄야 합니다.
@@ -1090,27 +1139,29 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 VAL: 3047
 PTR이 가리키는 값: 3047
-num1의 주소: 0x7ffc777699dc
-ptr에 저장된 주소값: 0x7ffc777699dc
+num1의 주소: 0x7ffc35d0d36c
+ptr에 저장된 주소값: 0x7ffc35d0d36c
 
 ```
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 📎 opp13. 배열 원소에 참조자 걸기
+<a name="opp13"></a>
+## 📎 opp13. 배열 원소에 참조자 걸기
 
 ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 배열의 특정 칸(원소)에 별명을 붙여서, 배열 문법(arr[i]) 없이 짧은 이름으로 값을 다루고 싶을 때
+> ### 언제 쓰나
+> 배열의 특정 칸(원소)에 별명을 붙여서, 배열 문법(arr[i]) 없이 짧은 이름으로 값을 다루고 싶을 때
 
 ```cpp
 #include <iostream>
@@ -1129,8 +1180,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!NOTE]
 > **개념**
@@ -1142,7 +1193,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 1
 3
@@ -1152,7 +1203,7 @@ int main()
 
 <blockquote>
 
-#### 🔁 opp13의 변형 · 참조자로 배열 원소 값을 실제로 바꿔보기
+### 🔁 opp13의 변형 · 참조자로 배열 원소 값을 실제로 바꿔보기
 
 > [!NOTE]
 > 참조자가 진짜 원본을 가리키는지 확인하는 가장 확실한 방법은, 참조자 쪽 값을 바꾼 뒤 배열 원본을 다시 출력해보는 것입니다.
@@ -1174,7 +1225,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 ref1: 100
 arr[0]: 100
@@ -1183,16 +1234,18 @@ arr[0]: 100
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
-### 🪢 opp14. 참조자와 포인터를 함께 쓰기
+<a name="opp14"></a>
+## 🪢 opp14. 참조자와 포인터를 함께 쓰기
 
 ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square)
 
 > [!TIP]
-> **언제 쓰나** · 포인터, 이중포인터가 가리키는 대상 자체에도 참조자로 별명을 붙이고 싶을 때 (참조자 문법의 응용)
+> ### 언제 쓰나
+> 포인터, 이중포인터가 가리키는 대상 자체에도 참조자로 별명을 붙이고 싶을 때 (참조자 문법의 응용)
 
 ```cpp
 #include <iostream>
@@ -1216,8 +1269,8 @@ int main()
 }
 ```
 
-<details>
-<summary><b>📝 개념 설명 보기</b></summary>
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
 
 > [!CAUTION]
 > **오류였던 부분**
@@ -1240,7 +1293,7 @@ int main()
 
 </details>
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 12
 12
@@ -1250,7 +1303,7 @@ int main()
 
 <blockquote>
 
-#### 🔁 opp14의 변형 · 화살표로 관계를 정리한 간단 버전
+### 🔁 opp14의 변형 · 화살표로 관계를 정리한 간단 버전
 
 > [!NOTE]
 > 이중포인터/참조자 없이 딱 한 단계(변수-포인터-참조자)만 남겨서 관계를 다시 확인해보면 이해가 쉬워집니다.
@@ -1276,7 +1329,7 @@ int main()
 }
 ```
 
-**▶️ 실행 결과**
+#### ▶️ 실행 결과
 ```
 num 자체: 55
 *ptr (ptr이 가리키는 값): 55
@@ -1287,12 +1340,12 @@ num 자체: 55
 
 </blockquote>
 
-<div align="right"><a href="#toc">목차로 ↑</a></div>
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
 ---
 
 <div align="center">
 
-*🌱 매일 조금씩 — Day 1 완료*
+### 🌱 매일 조금씩 — Day 1 완료
 
 </div>
