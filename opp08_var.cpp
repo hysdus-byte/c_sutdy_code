@@ -1,5 +1,4 @@
-//namespace(이름공간)기초
-//서로 다른 그룹에서 같은 이름 함수를 만들어도 충돌 없이 구분해서 쓰고 싶을 때
+//using namespace로 소속 생략하기
 #include <iostream>
 
 namespace BestComImpl
@@ -20,8 +19,10 @@ namespace ProgComImpl
 
 int main()
 {
-	BestComImpl::SimpleFunc();
-	ProgComImpl::SimpleFunc();
+	using namespace ProgComImpl; // ProgComImpl만 생략 가능하게 함
+
+	SimpleFunc();				 // ProgComImpl::SimpleFunc() 호출됨
+	BestComImpl::SimpleFunc();	 // 이쪽은 여전히 :: 명시해야함 
+
 	return 0;
 }
-

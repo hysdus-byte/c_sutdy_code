@@ -1,21 +1,25 @@
-//#include <iostream>
-//
-//int main()
-//{
-//	char name[100];
-//	char lang[200];
-//	int age;
-//	std::cout << "ì´ë¦„ì€ ë¬´ì—‡ì…ë‹ˆê¹Œ?";
-//	std::cin >> name;
-//
-//	std::cout << "ì¢‹ì•„í•˜ëŠ” í”„ë¡œê·¸ë˜ë° ì–¸ì–´ëŠ” ë¬´ì—‡ì¸ê°€ìš”?";
-//	std::cin >> lang;
-//
-//	std::cout << "ë‚˜ì´ëŠ” ëª‡ì‚´ì…ë‹ˆê¹Œ?";
-//	std::cin >> age;
-//
-//	std::cout << "ë‚´ ì´ë¦„ì€ " << name << "ì…ë‹ˆë‹¤.\n";
-//	std::cout << "ì œì¼ ì¢‹ì•„í•˜ëŠ” ì–¸ì–´ëŠ” " << lang << "ì…ë‹ˆë‹¤" << std::endl;
-//	std::cout << "ì œ ë‚˜ì´ëŠ” " << age << "ì…ë‹ˆë‹¤.\n";
-//	return 0;
-//}
+//¿©·¯ °³ÀÇ char ¹è¿­·Î Á¤º¸ ÀÔ·Â¹Ş±â
+//ÀÌ¸§ ³ªÀÌ Ã³·³ ¹®ÀÚ¿­ ¿©·¯ °³¸¦ ÀÔ·Â¹Ş¾Æ Ãâ·ÂÇÒ¶§
+#include <iostream>
+
+int main()
+{
+	char name[100];
+	char lang[200];
+	int age;
+
+	std::cout << "ÀÌ¸§Àº ¹«¾ùÀÔ´Ï±î?";
+	std::cin >> name;
+
+	std::cout << "ÁÁ¾ÆÇÏ´Â ÇÁ·Î±×·¡¹ÖÀº ¹«¾ùÀÔ´Ï±î?";
+	std::cin >> lang;
+
+	std::cout << "³ªÀÌ´Â ¸î»ì ÀÔ´Ï±î?";
+	std::cin >> age;
+
+	std::cout << "Á¦ ÀÌ¸§Àº " << name << "ÀÔ´Ï´Ù" << std::endl;
+	std::cout << "ÁÁ¾ÆÇÏ´Â ÇÁ·Î±×·¡¹ÖÀº " << lang << "ÀÔ´Ï´Ù." << std::endl;
+	std::cout << "Á¦ ³ªÀÌ´Â " << age << "ÀÔ´Ï´Ù" << std::endl;
+
+	return 0;
+}

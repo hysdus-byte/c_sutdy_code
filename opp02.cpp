@@ -1,14 +1,16 @@
-//#include <iostream>
-//int main()
-//{
-//	int val1;
-//	std::cout << "ì²«ë²ˆì§¸ ìˆ«ìì…ë ¥:";
-//	std::cin >> val1;
-//	int val2;
-//	std::cout << "ë‘ë²ˆì§¸ ìˆ«ìì…ë ¥:";
-//	std::cin >> val2;
-//	int result = val1 + val2;
-//	std::cout << "ë§ì…ˆê²°ê³¼: " << result << std::endl;
-//
-//	return 0;
-//}
+//cinÀ¸·Î µÎ ¼ıÀÚ ÀÔ·Â ¹Ş¾Æ µ¡¼ÀÇÏ±â 
+//CÀÇ scanf´ë½Å cinÀ¸·Î °ªÀ» ÀÔ·Â ¹ŞÀ» ¶§
+#include <iostream>
+int main()
+{
+	int val1;
+	std::cout << "Ã¹ ¹øÂ° ¼ıÀÚ ÀÔ·Â:";
+	std::cin >> val1;
+	int val2;
+	std::cout << "µÎ ¹øÂ° ¼ıÀÚ ÀÔ·Â:";
+	std::cin >> val2;
+	int result = val1 + val2;
+	std::cout << "µ¡¼À°á°ú: " << result << std::endl;
+
+	//return 0;
+}

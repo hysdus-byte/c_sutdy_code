@@ -1,22 +1,25 @@
-//#include <iostream>
-//
-//int main()
-//{
-//	int val1, val2;
-//	int result = 0;
-//
-//	std::cout << "ë‘ê°œì˜ ìˆ«ìì…ë ¥:";
-//	std::cin >> val1 >> val2;
-//
-//	if (val1 < val2) {
-//		for (int i = val1 + 1; i < val2; i++)
-//			result += i;
-//	}
-//	else {
-//		for (int i = val2 + 1; i < val1; i++)
-//			result += i;
-//	}
-//
-//	std::cout << "ë‘ ìˆ˜ ì‚¬ì´ì˜ ì •ìˆ˜ í•© :" << result << std::endl;
-//	return 0;
-//}
+//µÎ ¼ö »çÀÌÀÇ Á¤¼ö ÇÕ ±¸ÇÏ±â 
+//ÀÔ·Â ¼ø¼­¿¡ »ó°ü¾øÀÌ µÎ ¼ö »çÀÌ¿¡ °ªÀ» °è»êÇØ¾ßÇÒ¶§(if-else + for¹®Á¶ÇÕ)
+#include <iostream>
+int main()
+{
+	int val1, val2;
+	int result = 0;
+
+	std::cout << "µÎ°³ÀÇ ¼ıÀÚÀÔ·Â:";
+	std::cin >> val1 >> val2;
+
+	if (val1 < val2)
+	{
+		for (int i = val1 + 1; i < val2; i++)
+			result += i;
+	}
+	else
+	{
+		for (int i = val2 + 1; i < val1; i++)
+			result += i;
+	}
+
+	std::cout << "µÎ ¼ö »çÀÌÀÇ Á¤¼ö ÇÕ: " << result << std::endl;
+	return 0;
+}
