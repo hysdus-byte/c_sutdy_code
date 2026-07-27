@@ -5,7 +5,7 @@
 //	int val1, val2;
 //	int result = 0;
 //
-//	std::cout << "µÎ°³ÀÇ ¼ıÀÚÀÔ·Â:";
+//	std::cout << "ë‘ê°œì˜ ìˆ«ìì…ë ¥:";
 //	std::cin >> val1 >> val2;
 //
 //	if (val1 < val2) {
@@ -17,6 +17,6 @@
 //			result += i;
 //	}
 //
-//	std::cout << "µÎ ¼ö »çÀÌÀÇ Á¤¼ö ÇÕ :" << result << std::endl;
+//	std::cout << "ë‘ ìˆ˜ ì‚¬ì´ì˜ ì •ìˆ˜ í•© :" << result << std::endl;
 //	return 0;
 //}
