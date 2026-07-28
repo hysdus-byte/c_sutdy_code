@@ -1,0 +1,1 @@
+//배열 원소에 참조자 걸기//배열의 특정 칸(원소)에 별명을 붙여서, 배열 문법(arr[i]) 없이 짧은 이름으로 값을 다루고 싶을 때#include <iostream>using namespace std;int main(){	int arr[3] = { 1,3,5 };	int& ref1 = arr[0];	int& ref2 = arr[1];	int& ref3 = arr[2];	cout << ref1 << endl;	cout << ref2 << endl;	cout << ref3 << endl;	return 0;}
