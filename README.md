@@ -4,7 +4,7 @@
 
 ![C++](https://img.shields.io/badge/language-C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![Day](https://img.shields.io/badge/day-1-e8b04b?style=for-the-badge)
-![Examples](https://img.shields.io/badge/examples-opp01~opp14-4f9a5a?style=for-the-badge)
+![Examples](https://img.shields.io/badge/examples-opp01~opp17-4f9a5a?style=for-the-badge)
 
 ### *학원에서 C 13일차까지 배운 뒤 시작한 C++ 강의 첫날 실습 기록*
 
@@ -32,6 +32,9 @@
 | 📏 | **sizeof** | ![자료형](https://img.shields.io/badge/-자료형-ce9178?style=flat-square) | 어떤 값이나 자료형이 메모리에서 몇 바이트를 차지하는지 알려주는 연산자. | [`opp10`](#opp10) |
 | 🔗 | **참조자(&)** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 기존 변수에 붙이는 별명. 원본과 완전히 같은 메모리를 가리키며, 대상을 바꿀 수 없다. | [`opp12`](#opp12) |
 | 🪢 | **참조자 + 포인터** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 참조자는 포인터·이중포인터에도 걸 수 있어, 포인터 변수 자체의 별명을 만들 수 있다. | [`opp14`](#opp14) |
+| 🔄 | **참조자로 값 맞바꾸기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 두 매개변수를 모두 참조자로 받으면, 함수 안에서 값을 바꿔치기해도 원본에 그대로 반영된다. | [`opp15`](#opp15) |
+| ↩️ | **참조자 반환** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 함수가 참조자를 반환하면(int&), 반환된 결과도 원본의 별명이 된다. | [`opp16`](#opp16) |
+| ➡️ | **참조자 vs 값 반환** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 반환 타입에 & 하나 있고 없고의 차이로, 결과가 원본의 별명이 되거나 완전히 별개의 복사본이 된다. | [`opp17`](#opp17) |
 
 <br>
 
@@ -56,6 +59,10 @@
 | 🔗 | [`opp12`](#opp12) | **참조자(reference) — 변수에 별명 붙이기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
 | 📎 | [`opp13`](#opp13) | **배열 원소에 참조자 걸기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
 | 🪢 | [`opp14`](#opp14) | **참조자와 포인터를 함께 쓰기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
+| 🔄 | [`opp15`](#opp15) | **참조자로 두 값 완전히 맞바꾸기** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
+| ↩️ | [`opp16`](#opp16) | **참조자를 반환하는 함수** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) | 🔁 |
+| ➡️ | [`opp17`](#opp17) | **참조자를 반환하지 않는 함수 (opp16과 대조)** | ![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square) |  |
+| 🧬 | [`MyClass`](#myclass) | **학번·이름·나이를 갖는 클래스** | ![클래스 기초](https://img.shields.io/badge/-클래스%20기초-6a9fd8?style=flat-square) |  |
 
 ---
 
@@ -1107,8 +1114,8 @@ int main()
 ```
 VAL: 3047
 REF: 3047
-VAL: 0x7ffc3befd9cc
-REF: 0x7ffc3befd9cc
+VAL: 0x7ffc2a1106bc
+REF: 0x7ffc2a1106bc
 
 ```
 
@@ -1143,8 +1150,8 @@ int main()
 ```
 VAL: 3047
 PTR이 가리키는 값: 3047
-num1의 주소: 0x7ffc35d0d36c
-ptr에 저장된 주소값: 0x7ffc35d0d36c
+num1의 주소: 0x7ffd993d0a9c
+ptr에 저장된 주소값: 0x7ffd993d0a9c
 
 ```
 
@@ -1339,6 +1346,333 @@ num 자체: 55
 ```
 
 </blockquote>
+
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
+
+---
+
+<a name="opp15"></a>
+## 🔄 opp15. 참조자로 두 값 완전히 맞바꾸기
+
+![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square)
+
+> [!TIP]
+> ### 언제 쓰나
+> 함수 안에서 두 변수의 값을 서로 바꿔치기하면서, 그 결과를 함수 밖(원본)에도 반영하고 싶을 때
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void SwapByRef2(int& ref1, int& ref2)
+{
+	int temp = ref1;
+	ref1 = ref2;
+	ref2 = temp;
+}
+
+int main()
+{
+	int val1 = 10;
+	int val2 = 20;
+
+	SwapByRef2(val1, val2);
+	cout << "val1 : " << val1 << endl;
+	cout << "val2 : " << val2 << endl;
+
+	return 0;
+}
+```
+
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
+
+> [!NOTE]
+> **개념**
+> ref1, ref2 둘 다 참조자(&)로 선언했기 때문에, 각각 val1, val2의 별명입니다. 함수 안에서 ref1과 ref2의 값을 맞바꾸면, 그건 곧 val1과 val2 자체를 맞바꾸는 것과 같습니다.
+
+> [!NOTE]
+> **동작 순서**
+> temp에 `ref1(=val1=10)`을 잠깐 저장 → `ref1(=val1)`에 `ref2(=val2=20)`를 대입 → `ref2(=val2)`에 `temp(=10)`를 대입. 그 결과 val1은 20, val2는 10으로 완전히 뒤바뀝니다.
+
+</details>
+
+#### ▶️ 실행 결과
+```
+val1 : 20
+val2 : 10
+
+```
+
+<blockquote>
+
+### 🔁 opp15의 변형 · 매개변수 하나를 값 전달로 바꾸면?
+
+> [!NOTE]
+> 세 번째 매개변수만 참조자가 아니라 일반 `int(값 전달)`로 바꾸면 어떻게 될까요? val1, val2는 정상적으로 뒤바뀌지만, val3는 전혀 바뀌지 않습니다 — ref3는 val3의 '복사본'일 뿐이라, 함수 안에서 ref3를 바꿔도 원본 val3에는 반영되지 않기 때문입니다. 참조자와 값 전달의 차이를 한 함수 안에서 대조해서 보여주는 예제입니다.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void SwapByRef2(int& ref1, int& ref2, int ref3)
+{
+	int temp = ref1;
+	ref1 = ref2;
+	ref2 = ref3;
+	ref3 = temp;
+}
+
+int main()
+{
+	int val1 = 10;
+	int val2 = 20;
+	int val3 = 30;
+	SwapByRef2(val1, val2, val3);
+	cout << "val1 : " << val1 << endl;
+	cout << "val2 : " << val2 << endl;
+	cout << "val3 : " << val3 << endl;
+
+	return 0;
+}
+```
+
+#### ▶️ 실행 결과
+```
+val1 : 20
+val2 : 30
+val3 : 30
+
+```
+
+</blockquote>
+
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
+
+---
+
+<a name="opp16"></a>
+## ↩️ opp16. 참조자를 반환하는 함수
+
+![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square)
+
+> [!TIP]
+> ### 언제 쓰나
+> 함수가 매개변수로 받은 변수를 '원본 그대로' 호출부에 돌려주고 싶을 때 (반환값도 별명으로 이어주기)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int& RefRetFuncOne(int& ref)
+{
+	ref++;
+	return ref;
+}
+
+int main()
+{
+	int num1 = 1;
+	int& num2 = RefRetFuncOne(num1);
+
+	num1++;
+	num2++;
+	cout << "num1: " << num1 << endl;
+	cout << "num2: " << num2 << endl;
+	
+	return 0;
+}
+```
+
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
+
+> [!CAUTION]
+> **오류였던 부분**
+> 처음에는 반환 타입을 `int(참조자 아님)`로 뒀다가, main에서 `int`& num2 = `RefRetFuncOne(num1)`;처럼 참조자로 결과를 받으려 해서 "실체 없는 값에 참조자를 연결할 수 없다"는 오류가 났었습니다. 반환 타입을 `int`&로 바꿔 해결했습니다.
+
+> [!NOTE]
+> **동작 순서**
+> `RefRetFuncOne(num1)` 호출 시 ref는 num1의 별명이 되고, ref++로 num1이 2가 된 뒤, `ref(=num1)` 자체를 참조자로 반환합니다. num2는 그 반환된 참조자를 받아 num1의 또 다른 별명이 됩니다. 이후 num1++, num2++ 는 결국 같은 변수를 두 번 증가시키는 것과 같아서, 최종적으로 둘 다 4가 됩니다.
+
+</details>
+
+#### ▶️ 실행 결과
+```
+num1: 4
+num2: 4
+
+```
+
+<blockquote>
+
+### 🔁 opp16의 변형 · 다른 값으로 증가시켜도 결과는 항상 같다
+
+> [!NOTE]
+> num1++, num2++ 대신 num1 += 1; num2 += 100; 처럼 다른 값을 더해도, num1과 num2가 같은 변수를 가리키는 건 변하지 않으므로 최종 값은 여전히 서로 일치합니다 (103, 103). 참조자 반환의 핵심은 '증가시키는 양'이 아니라 '같은 실체를 공유한다'는 점입니다.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int& RefRetFuncOne(int& ref)   
+{
+	ref++;
+	return ref;              
+}
+
+int main()
+{
+	int num1 = 1;
+	int& num2 = RefRetFuncOne(num1);
+
+	num1+=1;
+	num2+= 100;
+	cout << "num1: " << num1 << endl;
+	cout << "num2: " << num2 << endl;
+
+	return 0;
+}
+```
+
+#### ▶️ 실행 결과
+```
+num1: 103
+num2: 103
+
+```
+
+</blockquote>
+
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
+
+---
+
+<a name="opp17"></a>
+## ➡️ opp17. 참조자를 반환하지 않는 함수 (opp16과 대조)
+
+![참조자](https://img.shields.io/badge/-참조자-4ec9b0?style=flat-square)
+
+> [!TIP]
+> ### 언제 쓰나
+> 매개변수는 참조자로 받아도, 반환 타입에 &가 없으면 결과가 어떻게 달라지는지 확인하고 싶을 때
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int RefRetFuncTwo(int& ref)
+{
+	ref++;
+	return ref;
+}
+
+int main()
+{
+	int num1 = 1;
+	int num2 = RefRetFuncTwo(num1);
+
+	num1 += 1;
+	num2 += 100;
+	cout << "num1: " << num1 << endl;
+	cout << "num2: " << num2 << endl;
+
+	return 0;
+}
+```
+
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
+
+> [!NOTE]
+> **opp16과 딱 하나 다른 점**
+> 반환 타입이 `int`&가 아니라 `int`입니다. ref++로 num1은 2가 되고, `return` ref;로 그 '값(2)'만 복사되어 나갑니다. num2도 그냥 `int`라서, num2는 num1의 별명이 아니라 값만 전달받은 완전히 독립적인 새 변수가 됩니다.
+
+> [!NOTE]
+> **결과 비교**
+> num1 += 1로 num1은 3, num2 += 100으로 num2는 102가 되어 서로 다른 값을 갖게 됩니다. `opp16(참조자 반환)`에서는 두 값이 항상 같았던 것과 정반대입니다 — 반환 타입에 & 하나 있고 없고의 차이가 결과를 완전히 갈라놓는다는 걸 보여주는 대조 예제입니다.
+
+</details>
+
+#### ▶️ 실행 결과
+```
+num1: 3
+num2: 102
+
+```
+
+<div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
+
+---
+
+# 🎓 챕터 진도 예제
+
+> opp 시리즈(Day 1 실습)와 별도로, 열혈 C++ 교재 챕터 진도에 맞춰 만든 예제입니다.
+
+<a name="myclass"></a>
+## 🧬 MyClass. 학번·이름·나이를 갖는 클래스
+
+![함수](https://img.shields.io/badge/-클래스%20기초-6a9fd8?style=flat-square)
+
+> [!TIP]
+> ### 언제 쓰나
+> 여러 개의 데이터(학번, 이름, 나이)를 하나의 클래스로 묶고, `private`으로 정보를 감춘 뒤 생성자로만 초기화하고 싶을 때 (Chapter 3~4 정보은닉 개념 실습)
+
+```cpp
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class Myclass {
+
+	int studentId;      // 학번
+	char name[20];       // 이름
+	int age;              // 나이
+
+public: // Myclass 아래를 외부에서 사용할 수 있게 공개
+	Myclass(int astudentId, const char* aname, int aage)  // 생성자
+	{
+		studentId = astudentId;
+		strcpy(name, aname);   // 문자열은 = 대입이 아니라 strcpy로 복사
+		age = aage;
+	}
+
+	void Getdata()   // 출력 함수
+	{
+		cout << "학번: " << studentId << " 이름:" << name << "나이 :" << age << endl;
+	}
+};
+
+int main()
+{
+	Myclass a(20260609, "한연성", 25);   // 생성자를 통해 한 번에 초기화
+	a.Getdata();
+
+	return 0;
+}
+```
+
+<details open>
+<summary><h3>📝 개념 설명 보기</h3></summary>
+
+> [!NOTE]
+> **정보은닉 적용**
+> `studentId`, `name`, `age` 세 멤버변수를 전부 `private`으로 감추고, `public` 생성자를 통해서만 값을 넣을 수 있게 만들었습니다. 외부(`main`)에서 `a.studentId = -1;`처럼 직접 접근하는 게 원천적으로 막혀 있는 구조입니다.
+
+> [!NOTE]
+> **문자열 멤버는 strcpy로**
+> `name`은 `char[20]` 배열이라 `name = aname;`처럼 `=`로 통째로 대입할 수 없습니다. `<cstring>`(또는 `<string.h>`)의 `strcpy(name, aname);`으로 한 글자씩 복사해야 합니다.
+
+</details>
+
+#### ▶️ 실행 결과
+```
+학번: 20260609 이름:한연성나이 :25
+```
+
+> [!TIP]
+> **다듬으면 더 좋아질 부분**: `" 이름:"`과 `"나이 :"` 사이에 공백이 없어서 출력이 붙어 나옵니다. `" 이름: "`, `" 나이: "`처럼 공백을 통일하면 더 깔끔합니다.
 
 <div align="right"><a href="#toc"><b>목차로 ↑</b></a></div>
 
